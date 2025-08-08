@@ -1,5 +1,7 @@
 package dev.lin.dtos;
 
-public class EntryDTO {
+import java.time.LocalDate;
+
+public record EntryDTO(String emotion, LocalDate date, String moment) {
     
 }
