@@ -76,7 +76,7 @@ public class MomentPostView extends View {
         LocalDate momentUpdate = momentCreationDate;
 
         MomentDTO moment = new MomentDTO(momentId, momentTitle, momentEmotion, momentDate, momentDescription, momentCreationDate, momentUpdate);
-        CONTROLLER.Storemoment(moment);
+        CONTROLLER.StoreMoment(moment);
         
         System.out.println("Momento guardado con éxito.");
         HomeView.printMenu();
