@@ -21,7 +21,7 @@ public class EntryPostView extends View {
 
         System.out.println("Escribe el título del momento:");
         String entryTitle = SCANNER.nextLine();
-        System.out.println(entryTitle);
+        System.out.println("Título: " + entryTitle);
 
         // Bloque de texto
         String text = """
@@ -51,7 +51,7 @@ public class EntryPostView extends View {
                 System.out.print("Selecciona un número del 1 al 10: ");
             }
         }
-        System.out.println("Has elegido " + entryEmotion);
+        System.out.println("Has elegido: " + entryEmotion);
 
         LocalDate entryDate = null;
         while (entryDate == null) {
@@ -70,16 +70,13 @@ public class EntryPostView extends View {
 
         System.out.println("Escribe la descripción del momento:");
         String entryMoment = SCANNER.nextLine();
-        System.out.println(entryMoment);
 
         LocalDate entryCreationDate = LocalDate.now();
         LocalDate entryUpdate = entryCreationDate;
-        System.out.println(entryCreationDate);
-
 
         EntryDTO entry = new EntryDTO(entryId, entryTitle, entryEmotion, entryDate, entryMoment, entryCreationDate, entryUpdate);
         CONTROLLER.StoreEntry(entry);
-
+        System.out.println("Momento guardado con éxito.");
         HomeView.printMenu();
     }
     
