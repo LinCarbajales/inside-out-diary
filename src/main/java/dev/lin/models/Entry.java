@@ -6,7 +6,7 @@ public class Entry {
 
     private int id;
     private String title;
-    private String emotion;
+    private EmotionEnum emotion;
     private LocalDate date;
     private String moment;
     private LocalDate creationDate;
@@ -16,7 +16,7 @@ public class Entry {
         this.id = id;
     }
     
-    // Getter
+    // Getters
     public int getId() {
         return id;
     }
@@ -25,7 +25,7 @@ public class Entry {
         return title;
     }
 
-    public String getEmotion() {
+    public EmotionEnum getEmotion() {
         return emotion;
     }
     
@@ -45,9 +45,29 @@ public class Entry {
         return update;
     }
 
-    // Setter
-    public void setEmotion(String emotion) {
+    // Setters
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setEmotion(EmotionEnum emotion) {  // Ya lo tienes
         this.emotion = emotion;
+    }
+    
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public void setMoment(String moment) {
+        this.moment = moment;
+    }
+
+    public void setCreationDate(LocalDate creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public void setUpdate(LocalDate update) {
+        this.update = update;
     }
 
 }
