@@ -6,7 +6,7 @@ public class HomeView extends View{
 
         // Bloque de texto
         String text = """
-                My diario:
+                Mi diario:
                 1. Añadir momento
                 2. Ver todos los momentos disponibles
                 3. Eliminar un momento
