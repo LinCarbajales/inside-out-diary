@@ -76,6 +76,7 @@ public class EntryPostView extends View {
 
         EntryDTO entry = new EntryDTO(entryId, entryTitle, entryEmotion, entryDate, entryMoment, entryCreationDate, entryUpdate);
         CONTROLLER.StoreEntry(entry);
+        
         System.out.println("Momento guardado con éxito.");
         HomeView.printMenu();
     }
