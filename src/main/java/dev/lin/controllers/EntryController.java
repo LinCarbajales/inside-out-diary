@@ -16,23 +16,6 @@ public class EntryController {
         this.repository = EntryRepositorySingleton.getInstance();
     }
 
-    // Emociones según número para la selección
-    private static final List<String> emotionList = List.of(
-    "Alegría", "Tristeza", "Ira", "Asco", "Miedo",
-    "Ansiedad", "Envidia", "Vergüenza", "Aburrimiento", "Nostalgia"
-    );
-
-    public String getEmotion(int number) {
-        if (number >= 1 && number <= emotionList.size()) {
-            return emotionList.get(number - 1);
-        }
-        return null;
-    }
-
-    public boolean isValidEmotion(int number) {
-        return number >= 1 && number <= emotionList.size();
-    }
-
     //Store
     public void StoreEntry(EntryDTO entryDTO) {
         Entry entryToSave = EntryMapper.toEntity(entryDTO);

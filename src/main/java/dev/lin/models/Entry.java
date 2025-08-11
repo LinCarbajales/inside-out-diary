@@ -41,7 +41,7 @@ public class Entry {
         return creationDate;
     }
 
-    public LocalDate getUpate() {
+    public LocalDate getUpdate() {
         return update;
     }
 
