@@ -9,6 +9,8 @@ public class Entry {
     private String emotion;
     private LocalDate date;
     private String moment;
+    private LocalDate creationDate;
+    private LocalDate update;
 
     public Entry(int id) {
         this.id = id;
@@ -33,6 +35,14 @@ public class Entry {
 
     public String getMoment() {
         return moment;
+    }
+
+    public LocalDate getCreationDate() {
+        return creationDate;
+    }
+
+    public LocalDate getUpate() {
+        return update;
     }
 
     // Setter

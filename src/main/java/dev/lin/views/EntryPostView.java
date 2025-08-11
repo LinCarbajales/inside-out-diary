@@ -3,14 +3,22 @@ package dev.lin.views;
 import dev.lin.controllers.EntryController;
 import dev.lin.dtos.EntryDTO;
 import dev.lin.singletons.EntryControllerSingleton;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 public class EntryPostView extends View {
 
     private static EntryController CONTROLLER = EntryControllerSingleton.getInstance();
+    private static int nextId = 1;
 
     public static void printStoreMenu() {
         
         SCANNER.nextLine();
+
+        int entryId = nextId++;
+        System.out.println(entryId);
+
         System.out.println("Escribe el título del momento:");
         String entryTitle = SCANNER.nextLine();
         System.out.println(entryTitle);
@@ -43,19 +51,36 @@ public class EntryPostView extends View {
                 System.out.print("Selecciona un número del 1 al 10: ");
             }
         }
-        System.out.println(entryEmotion);
+        System.out.println("Has elegido " + entryEmotion);
 
-        System.out.print("Introduce la fecha: ")
+        LocalDate entryDate = null;
+        while (entryDate == null) {
+            System.out.print("Introduce la fecha (dd/mm/aaaa): ");
+            String userDate = SCANNER.nextLine();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    
+            try {
+                entryDate = LocalDate.parse(userDate, formatter);
+            } catch (DateTimeParseException e) {
+                System.out.println("Formato de fecha incorrecto. Usa el formato dd/mm/aaaa");
+            }
+        }
+
+        System.out.println("Fecha del momento: " + entryDate);
+
+        System.out.println("Escribe la descripción del momento:");
+        String entryMoment = SCANNER.nextLine();
+        System.out.println(entryMoment);
+
+        LocalDate entryCreationDate = LocalDate.now();
+        LocalDate entryUpdate = entryCreationDate;
+        System.out.println(entryCreationDate);
 
 
-/* 
-        String characterName = SCANNER.next();
-        System.out.println("Introduce la fecha:");
-        String country = SCANNER.next();
-        System.out.println("Describe el momento:");  
+        EntryDTO entry = new EntryDTO(entryId, entryTitle, entryEmotion, entryDate, entryMoment, entryCreationDate, entryUpdate);
+        CONTROLLER.StoreEntry(entry);
 
-        EntryDTO entry = new entryDTO(entryTitle);
-        CONTROLLER.StoreEntry(entry); */
+        HomeView.printMenu();
     }
     
 } 

@@ -7,16 +7,14 @@ import dev.lin.models.Entry;
 
 public class DiaryDatabase {
     
-    private List<Character> entries;
+    private List<Entry> entries;
 
     public DiaryDatabase() {
         this.entries = new ArrayList<>();
     }
 
     public void store(Entry entry) {
-        entry.add(entry);
+        entries.add(entry);
     }
-
-    
 
 }

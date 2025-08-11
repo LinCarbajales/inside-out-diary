@@ -34,7 +34,7 @@ public class EntryController {
     }
 
     //Store
-    public void StoreCharacter(EntryDTO characterDTO) {
+    public void StoreEntry(EntryDTO entryDTO) {
         Entry entryToSave = EntryMapper.toEntity(entryDTO);
         repository.StoreEntry(entryToSave);
     }
