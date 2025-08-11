@@ -1,13 +1,13 @@
 package dev.lin.views;
 
-import dev.lin.controllers.EntryController;
-import dev.lin.dtos.EntryDTO;
-import dev.lin.singletons.EntryControllerSingleton;
+import dev.lin.controllers.MomentController;
+import dev.lin.dtos.MomentDTO;
+import dev.lin.singletons.MomentControllerSingleton;
 import java.time.LocalDate;
 
 public class RecoverListView extends View {
 
-    private static EntryController CONTROLLER = EntryControllerSingleton.getInstance();
+    private static MomentController CONTROLLER = MomentControllerSingleton.getInstance();
 
     public static void printRecover() {
         System.out.print("Placeholder");

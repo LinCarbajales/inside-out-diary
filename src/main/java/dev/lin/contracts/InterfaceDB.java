@@ -1,9 +1,9 @@
 package dev.lin.contracts;
 
 import java.util.List;
-import dev.lin.models.Entry;
+import dev.lin.models.Moment;
 
 public interface InterfaceDB {
-    void store(Entry entry);
-    List<Entry> getAllEntries();
+    void store(Moment moment);
+    List<Moment> getAllMoments();
 }
