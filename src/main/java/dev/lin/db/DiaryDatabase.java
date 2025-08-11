@@ -16,6 +16,13 @@ public class DiaryDatabase implements InterfaceDB {
     @Override
     public void store(Entry entry) {
         entries.add(entry);
+        System.out.println("✅ Nueva entrada guardada:");
+    System.out.println("   ID: " + entry.getId());
+    System.out.println("   Título: " + entry.getTitle());
+    System.out.println("   Emoción: " + entry.getEmotion().getName());
+    System.out.println("   Fecha: " + entry.getDate());
+    System.out.println("   Momento: " + entry.getMoment());
+    System.out.println("   Total entradas: " + entries.size());
     }
 
     @Override

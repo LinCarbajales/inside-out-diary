@@ -21,6 +21,7 @@ public class HomeView extends View{
         int option = SCANNER.nextInt();
 
         if (option == 1) EntryPostView.printStoreMenu();
+        if (option == 2) RecoverListView.printRecover();
     }
 
 }

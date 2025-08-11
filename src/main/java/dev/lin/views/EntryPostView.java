@@ -3,6 +3,7 @@ package dev.lin.views;
 import dev.lin.controllers.EntryController;
 import dev.lin.dtos.EntryDTO;
 import dev.lin.singletons.EntryControllerSingleton;
+import dev.lin.models.EmotionEnum;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -17,7 +18,6 @@ public class EntryPostView extends View {
         SCANNER.nextLine();
 
         int entryId = nextId++;
-        System.out.println(entryId);
 
         System.out.println("Escribe el título del momento:");
         String entryTitle = SCANNER.nextLine();
@@ -41,17 +41,18 @@ public class EntryPostView extends View {
 
         System.out.print(text);
     
-        String entryEmotion = null;
+        EmotionEnum entryEmotion = null;
         while (entryEmotion == null) {
             int emotionNum = SCANNER.nextInt();
             SCANNER.nextLine();
-        
-            entryEmotion = CONTROLLER.getEmotion(emotionNum);
-            if (entryEmotion == null) {
-                System.out.print("Selecciona un número del 1 al 10: ");
+
+            entryEmotion = EmotionEnum.fromNumber(emotionNum);
+    
+        if (entryEmotion == null) {
+            System.out.print("Selecciona un número del 1 al 10: ");
             }
         }
-        System.out.println("Has elegido: " + entryEmotion);
+        System.out.println("Has elegido: " + entryEmotion.getName());
 
         LocalDate entryDate = null;
         while (entryDate == null) {
