@@ -1,5 +1,6 @@
 package dev.lin.mappers;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -14,12 +15,12 @@ public class MomentMapper {
         moment.setEmotion(dto.emotion());
         moment.setDate(dto.date());
         moment.setDescription(dto.description());
-        moment.setCreationDate(dto.creationDate());
-        moment.setUpdate(dto.update());
+        moment.setCreationDate(LocalDate.now());
+        moment.setUpdate(LocalDate.now());
         return moment;
     }
 
-    public static MomentDTO toDTO(Moment entity) {
+   /*  public static MomentDTO toDTO(Moment entity) {
         return new MomentDTO(
             entity.getId(),
             entity.getTitle(),
@@ -29,12 +30,12 @@ public class MomentMapper {
             entity.getCreationDate(),
             entity.getUpdate()
         );
-    }
+    } 
 
     public static List<MomentDTO> toDTOList(List<Moment> moments) {
         return moments.stream()
                      .map(MomentMapper::toDTO)
                      .collect(Collectors.toList());
-    }
+    } */
 
 }

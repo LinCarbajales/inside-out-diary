@@ -72,10 +72,7 @@ public class MomentPostView extends View {
         System.out.println("Escribe la descripción del momento:");
         String momentDescription = SCANNER.nextLine();
 
-        LocalDate momentCreationDate = LocalDate.now();
-        LocalDate momentUpdate = momentCreationDate;
-
-        MomentDTO moment = new MomentDTO(momentId, momentTitle, momentEmotion, momentDate, momentDescription, momentCreationDate, momentUpdate);
+        MomentDTO moment = new MomentDTO(momentId, momentTitle, momentEmotion, momentDate, momentDescription);
         CONTROLLER.StoreMoment(moment);
         
         System.out.println("Momento guardado con éxito.");
