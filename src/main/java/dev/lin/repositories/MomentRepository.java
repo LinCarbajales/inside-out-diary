@@ -2,18 +2,18 @@ package dev.lin.repositories;
 
 import dev.lin.contracts.InterfaceDB;
 import dev.lin.db.DiaryDatabase;
-import dev.lin.models.Entry;
+import dev.lin.models.Moment;
 
-public class EntryRepository {
+public class MomentRepository {
     
     private InterfaceDB diaryDB;
 
-    public EntryRepository() {
+    public MomentRepository() {
         this.diaryDB = new DiaryDatabase();
     }
 
-    public void StoreEntry(Entry entry) {        
-        diaryDB.store(entry);
+    public void StoreMoment(Moment moment) {        
+        diaryDB.store(moment);
     }
 
 }

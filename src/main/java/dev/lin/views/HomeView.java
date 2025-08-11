@@ -20,7 +20,7 @@ public class HomeView extends View{
         // Solicitamos un número al usuario
         int option = SCANNER.nextInt();
 
-        if (option == 1) EntryPostView.printStoreMenu();
+        if (option == 1) MomentPostView.printStoreMenu();
         if (option == 2) RecoverListView.printRecover();
     }
 

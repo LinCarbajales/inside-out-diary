@@ -2,7 +2,7 @@ package dev.lin.models;
 
 import java.time.LocalDate;
 
-public class Entry {
+public class Moment {
 
     private int id;
     private String title;
@@ -12,7 +12,7 @@ public class Entry {
     private LocalDate creationDate;
     private LocalDate update;
 
-    public Entry(int id) {
+    public Moment(int id) {
         this.id = id;
     }
     

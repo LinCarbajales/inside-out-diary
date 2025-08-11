@@ -1,27 +1,27 @@
 package dev.lin.views;
 
-import dev.lin.controllers.EntryController;
-import dev.lin.dtos.EntryDTO;
-import dev.lin.singletons.EntryControllerSingleton;
+import dev.lin.controllers.MomentController;
+import dev.lin.dtos.MomentDTO;
+import dev.lin.singletons.MomentControllerSingleton;
 import dev.lin.models.EmotionEnum;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
-public class EntryPostView extends View {
+public class MomentPostView extends View {
 
-    private static EntryController CONTROLLER = EntryControllerSingleton.getInstance();
+    private static MomentController CONTROLLER = MomentControllerSingleton.getInstance();
     private static int nextId = 1;
 
     public static void printStoreMenu() {
         
         SCANNER.nextLine();
 
-        int entryId = nextId++;
+        int momentId = nextId++;
 
         System.out.println("Escribe el título del momento:");
-        String entryTitle = SCANNER.nextLine();
-        System.out.println("Título: " + entryTitle);
+        String momentTitle = SCANNER.nextLine();
+        System.out.println("Título: " + momentTitle);
 
         // Bloque de texto
         String text = """
@@ -41,42 +41,42 @@ public class EntryPostView extends View {
 
         System.out.print(text);
     
-        EmotionEnum entryEmotion = null;
-        while (entryEmotion == null) {
+        EmotionEnum momentEmotion = null;
+        while (momentEmotion == null) {
             int emotionNum = SCANNER.nextInt();
             SCANNER.nextLine();
 
-            entryEmotion = EmotionEnum.fromNumber(emotionNum);
+            momentEmotion = EmotionEnum.fromNumber(emotionNum);
     
-        if (entryEmotion == null) {
+        if (momentEmotion == null) {
             System.out.print("Selecciona un número del 1 al 10: ");
             }
         }
-        System.out.println("Has elegido: " + entryEmotion.getName());
+        System.out.println("Has elegido: " + momentEmotion.getName());
 
-        LocalDate entryDate = null;
-        while (entryDate == null) {
+        LocalDate momentDate = null;
+        while (momentDate == null) {
             System.out.print("Introduce la fecha (dd/mm/aaaa): ");
             String userDate = SCANNER.nextLine();
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     
             try {
-                entryDate = LocalDate.parse(userDate, formatter);
+                momentDate = LocalDate.parse(userDate, formatter);
             } catch (DateTimeParseException e) {
                 System.out.println("Formato de fecha incorrecto. Usa el formato dd/mm/aaaa");
             }
         }
 
-        System.out.println("Fecha del momento: " + entryDate);
+        System.out.println("Fecha del momento: " + momentDate);
 
         System.out.println("Escribe la descripción del momento:");
-        String entryDescription = SCANNER.nextLine();
+        String momentDescription = SCANNER.nextLine();
 
-        LocalDate entryCreationDate = LocalDate.now();
-        LocalDate entryUpdate = entryCreationDate;
+        LocalDate momentCreationDate = LocalDate.now();
+        LocalDate momentUpdate = momentCreationDate;
 
-        EntryDTO entry = new EntryDTO(entryId, entryTitle, entryEmotion, entryDate, entryDescription, entryCreationDate, entryUpdate);
-        CONTROLLER.StoreEntry(entry);
+        MomentDTO moment = new MomentDTO(momentId, momentTitle, momentEmotion, momentDate, momentDescription, momentCreationDate, momentUpdate);
+        CONTROLLER.Storemoment(moment);
         
         System.out.println("Momento guardado con éxito.");
         HomeView.printMenu();
