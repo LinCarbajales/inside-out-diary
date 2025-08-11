@@ -8,7 +8,7 @@ public class Entry {
     private String title;
     private EmotionEnum emotion;
     private LocalDate date;
-    private String moment;
+    private String description;
     private LocalDate creationDate;
     private LocalDate update;
 
@@ -33,8 +33,8 @@ public class Entry {
         return date;
     }
 
-    public String getMoment() {
-        return moment;
+    public String getDescription() {
+        return description;
     }
 
     public LocalDate getCreationDate() {
@@ -58,8 +58,8 @@ public class Entry {
         this.date = date;
     }
 
-    public void setMoment(String moment) {
-        this.moment = moment;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public void setCreationDate(LocalDate creationDate) {

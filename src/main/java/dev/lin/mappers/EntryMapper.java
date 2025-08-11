@@ -13,7 +13,7 @@ public class EntryMapper {
         entry.setTitle(dto.title());
         entry.setEmotion(dto.emotion());
         entry.setDate(dto.date());
-        entry.setMoment(dto.moment());
+        entry.setDescription(dto.description());
         entry.setCreationDate(dto.creationDate());
         entry.setUpdate(dto.update());
         return entry;
@@ -25,7 +25,7 @@ public class EntryMapper {
             entity.getTitle(),
             entity.getEmotion(),
             entity.getDate(),
-            entity.getMoment(),
+            entity.getDescription(),
             entity.getCreationDate(),
             entity.getUpdate()
         );

@@ -21,7 +21,7 @@ public class DiaryDatabase implements InterfaceDB {
     System.out.println("   Título: " + entry.getTitle());
     System.out.println("   Emoción: " + entry.getEmotion().getName());
     System.out.println("   Fecha: " + entry.getDate());
-    System.out.println("   Momento: " + entry.getMoment());
+    System.out.println("   Descripción: " + entry.getDescription());
     System.out.println("   Total entradas: " + entries.size());
     }
 

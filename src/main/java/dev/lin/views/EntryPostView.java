@@ -70,12 +70,12 @@ public class EntryPostView extends View {
         System.out.println("Fecha del momento: " + entryDate);
 
         System.out.println("Escribe la descripción del momento:");
-        String entryMoment = SCANNER.nextLine();
+        String entryDescription = SCANNER.nextLine();
 
         LocalDate entryCreationDate = LocalDate.now();
         LocalDate entryUpdate = entryCreationDate;
 
-        EntryDTO entry = new EntryDTO(entryId, entryTitle, entryEmotion, entryDate, entryMoment, entryCreationDate, entryUpdate);
+        EntryDTO entry = new EntryDTO(entryId, entryTitle, entryEmotion, entryDate, entryDescription, entryCreationDate, entryUpdate);
         CONTROLLER.StoreEntry(entry);
         
         System.out.println("Momento guardado con éxito.");
