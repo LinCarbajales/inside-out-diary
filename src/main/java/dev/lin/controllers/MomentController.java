@@ -28,4 +28,9 @@ public class MomentController {
         List<Moment> moments = repository.getAllMoments();
         return MomentMapper.toDTOList(moments);
     }
+
+    //To delete
+    public boolean deleteMoment(int id) {
+        return repository.deleteMoment(id);
+    }
 }

@@ -22,4 +22,7 @@ public class MomentRepository {
         return diaryDB.getAllMoments();
     }
 
+    public boolean deleteMoment(int id) {
+        return diaryDB.deleteMoment(id);
+    }
 }

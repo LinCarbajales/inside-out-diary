@@ -29,6 +29,12 @@ public class DiaryDatabase implements InterfaceDB {
         return moments;
     }
 
+    @Override
+    public boolean deleteMoment(int id) {
+        boolean removed = moments.removeIf(moment -> moment.getId() == id);        
+        return removed;
+    }
+
     public int getTotalMoments() {
         return moments.size();
     }
