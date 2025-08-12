@@ -1,5 +1,6 @@
 package dev.lin.controllers;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import dev.lin.dtos.MomentDTO;
@@ -32,5 +33,11 @@ public class MomentController {
     //To delete
     public boolean deleteMoment(int id) {
         return repository.deleteMoment(id);
+    }
+
+    //Filter by emotion
+    public List<MomentViewDTO> getMomentsFiltered(String emotionName, LocalDate date) {
+        List<Moment> moments = repository.getMomentsFiltered(emotionName, date);
+        return MomentMapper.toDTOList(moments);
     }
 }

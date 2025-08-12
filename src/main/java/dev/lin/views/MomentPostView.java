@@ -5,8 +5,6 @@ import dev.lin.dtos.MomentDTO;
 import dev.lin.singletons.MomentControllerSingleton;
 import dev.lin.models.EmotionEnum;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
 
 public class MomentPostView extends View {
 
@@ -23,49 +21,10 @@ public class MomentPostView extends View {
         String momentTitle = SCANNER.nextLine();
         System.out.println("Título: " + momentTitle);
 
-        String text = """
-                Mis emociones:
-                1. Alegría
-                2. Tristeza
-                3. Ira
-                4. Asco
-                5. Miedo
-                6. Ansiedad
-                7. Envidia
-                8. Vergüenza
-                9. Aburrimiento
-                10. Nostalgia
-                Selecciona una emoción:
-                """;
-
-        System.out.print(text);
-    
-        EmotionEnum momentEmotion = null;
-        while (momentEmotion == null) {
-            int emotionNum = SCANNER.nextInt();
-            SCANNER.nextLine();
-
-            momentEmotion = EmotionEnum.fromNumber(emotionNum);
-    
-        if (momentEmotion == null) {
-            System.out.print("Selecciona un número del 1 al 10: ");
-            }
-        }
+        EmotionEnum momentEmotion = EmotionSelectorView.selectEmotion();
         System.out.println("Has elegido: " + momentEmotion.getName());
 
-        LocalDate momentDate = null;
-        while (momentDate == null) {
-            System.out.print("Introduce la fecha (dd/mm/aaaa): ");
-            String userDate = SCANNER.nextLine();
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-    
-            try {
-                momentDate = LocalDate.parse(userDate, formatter);
-            } catch (DateTimeParseException e) {
-                System.out.println("Formato de fecha incorrecto. Usa el formato dd/mm/aaaa");
-            }
-        }
-
+        LocalDate momentDate = DateInputView.inputDate();
         System.out.println("Fecha del momento: " + momentDate);
 
         System.out.println("Escribe la descripción del momento:");

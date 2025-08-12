@@ -1,7 +1,11 @@
 package dev.lin.db;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.time.LocalDate;
+
 import dev.lin.models.Moment;
 import dev.lin.contracts.InterfaceDB;
 
@@ -35,6 +39,15 @@ public class DiaryDatabase implements InterfaceDB {
         return removed;
     }
 
+    @Override
+public List<Moment> getMomentsFiltered(String emotionName, LocalDate date) {
+    return moments.stream()
+        .filter(moment -> emotionName == null || 
+                moment.getEmotion().getName().equalsIgnoreCase(emotionName))
+        .filter(moment -> date == null || 
+                moment.getDate().equals(date))
+        .collect(Collectors.toList());
+}
     public int getTotalMoments() {
         return moments.size();
     }
