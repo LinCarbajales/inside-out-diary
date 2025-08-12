@@ -23,7 +23,6 @@ public class MomentPostView extends View {
         String momentTitle = SCANNER.nextLine();
         System.out.println("Título: " + momentTitle);
 
-        // Bloque de texto
         String text = """
                 Mis emociones:
                 1. Alegría

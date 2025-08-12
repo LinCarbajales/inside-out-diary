@@ -17,13 +17,14 @@ public class RecoverListView extends View {
             System.out.println("No hay entradas en el diario.");
         } else {
             moments.forEach(dto -> {
-                System.out.println("--- Entrada ---");
+                System.out.println("Momento " + dto.getId());
                 System.out.println("Título: " + dto.getTitle());
-                System.out.println("Emoción: " + dto.getEmotion());
+                System.out.println("Emoción: " + dto.getEmotion().getName());
                 System.out.println("Fecha: " + dto.getDate());
                 System.out.println("Descripción: " + dto.getDescription());
                 System.out.println("---------------");
             });
         }
+        HomeView.printMenu();
     }
 }  

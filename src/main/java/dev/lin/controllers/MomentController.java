@@ -8,7 +8,6 @@ import dev.lin.mappers.MomentMapper;
 import dev.lin.models.Moment;
 import dev.lin.repositories.MomentRepository;
 import dev.lin.singletons.MomentRepositorySingleton;
-import dev.lin.db.DiaryDatabase;
 
 public class MomentController {
     
@@ -26,8 +25,7 @@ public class MomentController {
 
     //To view
     public List<MomentViewDTO> SendList() {
-        DiaryDatabase database = new DiaryDatabase();
-        List<Moment> moments = database.getAllMoments();
+        List<Moment> moments = repository.getAllMoments();
         return MomentMapper.toDTOList(moments);
     }
 }
