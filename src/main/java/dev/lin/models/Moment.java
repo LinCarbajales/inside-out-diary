@@ -50,7 +50,7 @@ public class Moment {
         this.title = title;
     }
 
-    public void setEmotion(EmotionEnum emotion) {  // Ya lo tienes
+    public void setEmotion(EmotionEnum emotion) {
         this.emotion = emotion;
     }
     
