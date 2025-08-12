@@ -25,4 +25,8 @@ public class MomentRepository {
     public boolean deleteMoment(int id) {
         return diaryDB.deleteMoment(id);
     }
+
+    public List<Moment> getMomentsByEmotion(String emotionName) {
+        return diaryDB.getMomentsByEmotion(emotionName);
+    }
 }

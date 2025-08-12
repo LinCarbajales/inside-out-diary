@@ -33,4 +33,10 @@ public class MomentController {
     public boolean deleteMoment(int id) {
         return repository.deleteMoment(id);
     }
+
+    //Filter by emotion
+    public List<MomentViewDTO> getMomentsByEmotion(String emotionName) {
+        List<Moment> moments = repository.getMomentsByEmotion(emotionName);
+        return MomentMapper.toDTOList(moments);
+    }
 }
