@@ -1,6 +1,7 @@
 package dev.lin.repositories;
 
 import java.util.List;
+import java.time.LocalDate;
 
 import dev.lin.contracts.InterfaceDB;
 import dev.lin.db.DiaryDatabase;
@@ -26,7 +27,7 @@ public class MomentRepository {
         return diaryDB.deleteMoment(id);
     }
 
-    public List<Moment> getMomentsByEmotion(String emotionName) {
-        return diaryDB.getMomentsByEmotion(emotionName);
+    public List<Moment> getMomentsFiltered(String emotionName, LocalDate date) {
+        return diaryDB.getMomentsFiltered(emotionName, date);
     }
 }

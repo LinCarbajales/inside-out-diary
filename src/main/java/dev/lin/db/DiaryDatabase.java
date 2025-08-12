@@ -40,15 +40,14 @@ public class DiaryDatabase implements InterfaceDB {
     }
 
     @Override
-    public List<Moment> getMomentsByEmotion(String emotionName) {
-        return moments.stream()
-        .filter(moment -> 
-            moment.getEmotion().getName().equalsIgnoreCase(emotionName))
+public List<Moment> getMomentsFiltered(String emotionName, LocalDate date) {
+    return moments.stream()
+        .filter(moment -> emotionName == null || 
+                moment.getEmotion().getName().equalsIgnoreCase(emotionName))
+        .filter(moment -> date == null || 
+                moment.getDate().equals(date))
         .collect(Collectors.toList());
-    }
-
-
-
+}
     public int getTotalMoments() {
         return moments.size();
     }

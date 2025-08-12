@@ -8,5 +8,5 @@ public interface InterfaceDB {
     void store(Moment moment);
     List<Moment> getAllMoments();
     boolean deleteMoment(int id);
-    List<Moment> getMomentsByEmotion(String emotion);
+    List<Moment> getMomentsFiltered(String emotionName, LocalDate date);
 }
