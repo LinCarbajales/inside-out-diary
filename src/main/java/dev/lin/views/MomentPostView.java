@@ -23,34 +23,7 @@ public class MomentPostView extends View {
         String momentTitle = SCANNER.nextLine();
         System.out.println("Título: " + momentTitle);
 
-        String text = """
-                Mis emociones:
-                1. Alegría
-                2. Tristeza
-                3. Ira
-                4. Asco
-                5. Miedo
-                6. Ansiedad
-                7. Envidia
-                8. Vergüenza
-                9. Aburrimiento
-                10. Nostalgia
-                Selecciona una emoción:
-                """;
-
-        System.out.print(text);
-    
-        EmotionEnum momentEmotion = null;
-        while (momentEmotion == null) {
-            int emotionNum = SCANNER.nextInt();
-            SCANNER.nextLine();
-
-            momentEmotion = EmotionEnum.fromNumber(emotionNum);
-    
-        if (momentEmotion == null) {
-            System.out.print("Selecciona un número del 1 al 10: ");
-            }
-        }
+        EmotionEnum momentEmotion = EmotionSelectorView.selectEmotion();
         System.out.println("Has elegido: " + momentEmotion.getName());
 
         LocalDate momentDate = null;
