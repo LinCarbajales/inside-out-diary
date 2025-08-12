@@ -11,18 +11,18 @@ public class RecoverListView extends View {
 
     public static void printRecover() {
         List<MomentViewDTO> moments = CONTROLLER.SendList();
-        System.out.println(moments);
     
     if (moments.isEmpty()) {
             System.out.println("No hay entradas en el diario.");
         } else {
             moments.forEach(dto -> {
-                System.out.println("Momento " + dto.getId());
-                System.out.println("Título: " + dto.getTitle());
-                System.out.println("Emoción: " + dto.getEmotion().getName());
-                System.out.println("Fecha: " + dto.getDate());
-                System.out.println("Descripción: " + dto.getDescription());
-                System.out.println("---------------");
+                System.out.println(dto.getId() + ". " +
+                            dto.getTitle() + ". " + 
+                            "Ocurrió el: " + dto.getDate() +
+                            " Emoción: " + dto.getEmotion().getName() +
+                            ". Descripción: " + dto.getDescription() + 
+                            " Fecha de creación: " + dto.getCreationDate() +
+                            " Fecha de actualización: " +dto.getUpdate());
             });
         }
         HomeView.printMenu();

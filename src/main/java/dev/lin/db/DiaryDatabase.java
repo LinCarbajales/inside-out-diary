@@ -17,18 +17,16 @@ public class DiaryDatabase implements InterfaceDB {
     public void store(Moment moment) {
         moments.add(moment);
         System.out.println("Nuevo momento guardado:");
-        System.out.println("   ID: " + moment.getId());
-        System.out.println("   Título: " + moment.getTitle());
-        System.out.println("   Emoción: " + moment.getEmotion().getName());
-        System.out.println("   Fecha: " + moment.getDate());
-        System.out.println("   Descripción: " + moment.getDescription());
-        System.out.println("   Fecha de creación: " + moment.getCreationDate());
-        System.out.println("   Fecha de actualización: " + moment.getUpdate());
+        System.out.println(moment.getId() + ". " +
+                            moment.getTitle() + ". " + 
+                            "Ocurrió el: " + moment.getDate() +
+                            ". Emoción: " + moment.getEmotion().getName() +
+                            ". Descripción: " + moment.getDescription());
     }
 
     @Override
     public List<Moment> getAllMoments() {
-        return new ArrayList<>(moments);
+        return moments;
     }
 
     public int getTotalMoments() {
