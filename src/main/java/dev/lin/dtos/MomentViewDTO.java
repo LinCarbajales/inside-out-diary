@@ -1,0 +1,8 @@
+package dev.lin.dtos;
+
+import java.time.LocalDate;
+import dev.lin.models.EmotionEnum;
+
+public record MomentViewDTO(int id, String title, EmotionEnum emotion, LocalDate date, String description) {
+
+}
