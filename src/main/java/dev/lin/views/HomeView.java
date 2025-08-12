@@ -24,6 +24,8 @@ public class HomeView extends View{
         if (option == 2) RecoverListView.printRecover();
         if (option == 3) DeleteMomentView.printDeleteMoment();
 
+        if (option == 5) System.out.println("¡Hasta la próxima!");
+
     }
 
 }
