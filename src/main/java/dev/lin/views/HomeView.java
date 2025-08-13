@@ -1,5 +1,7 @@
 package dev.lin.views;
 
+import dev.lin.models.HomeOptionEnum;
+
 public class HomeView extends View{
 
     public static void printMenu() {
@@ -15,16 +17,19 @@ public class HomeView extends View{
                 """;
 
         System.out.print(text);
-
-        // Solicitamos un número al usuario
-        int option = SCANNER.nextInt();
-
-        if (option == 1) MomentPostView.printStoreMenu();
-        if (option == 2) RecoverListView.printRecover();
-        if (option == 3) DeleteMomentView.printDeleteMoment();
-        if (option == 4) FilterMomentsView.printFilterMenu();
-        if (option == 5) System.out.println("¡Hasta la próxima!");
-
+        
+        try {
+            int option = SCANNER.nextInt();
+            SCANNER.nextLine(); // Consumir el salto de línea
+            boolean found = HomeOptionEnum.execute(option);
+            if (!found) {
+                System.out.println("Elige una opción del 1 al 5.");
+                printMenu();
+            }
+        } catch (java.util.InputMismatchException e) {
+            System.out.println("Elige una opción del 1 al 5.");
+            SCANNER.nextLine(); // Limpiar toda la línea
+            printMenu();
+        }
     }
-
 }
