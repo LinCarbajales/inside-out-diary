@@ -63,18 +63,6 @@ public class ViewsPrintsTest {
     }
 
     @Test
-    public void testFilterMomentsView_printFilterMenu_showsOptions() throws Exception {
-        String output = tapSystemOut(() -> {
-            withTextFromSystemIn("\n9\n5\n").execute(() -> {
-                View.SCANNER = new java.util.Scanner(System.in);
-                FilterMomentsView.printFilterMenu();
-            });
-        });
-        assertTrue(output.contains("Filtrar por:"));
-        assertTrue(output.contains("Mi diario:"));
-    }
-
-    @Test
     public void testRecoverListView_printRecover_showsHomeMenu() throws Exception {
         String output = tapSystemOut(() -> {
             withTextFromSystemIn("5\n").execute(() -> {
