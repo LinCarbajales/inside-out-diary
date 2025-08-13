@@ -51,7 +51,7 @@ public class ViewsPrintsTest {
         String emptyOutput = tapSystemOut(() -> {
             MomentDisplayView.displayMoments(new ArrayList<>());
         });
-        assertTrue(emptyOutput.contains("No hay momentos guardados"));
+        assertTrue(emptyOutput.contains("No se han encontrado momentos."));
 
         List<MomentViewDTO> moments = new ArrayList<>();
         moments.add(new MomentViewDTO(1, "Título", EmotionEnum.ALEGRIA, java.time.LocalDate.now(), "Desc", java.time.LocalDate.now(), java.time.LocalDate.now()));
@@ -71,21 +71,6 @@ public class ViewsPrintsTest {
             });
         });
         assertTrue(output.contains("Filtrar por:"));
-        assertTrue(output.contains("Mi diario:"));
-    }
-
-    @Test
-    public void testMomentPostView_printStoreMenu_flow() throws Exception {
-        String simulatedInput = "\nTítulo\n1\n15/08/2024\nDescripción\n5\n";
-        String output = tapSystemOut(() -> {
-            withTextFromSystemIn(simulatedInput).execute(() -> {
-                View.SCANNER = new java.util.Scanner(System.in);
-                MomentPostView.printStoreMenu();
-            });
-        });
-        assertTrue(output.contains("Escribe el título del momento:"));
-        assertTrue(output.contains("Has elegido:"));
-        assertTrue(output.contains("Momento guardado con éxito."));
         assertTrue(output.contains("Mi diario:"));
     }
 

@@ -35,7 +35,7 @@ public class MomentController {
         return repository.deleteMoment(id);
     }
 
-    //Filter by emotion
+    //Filter
     public List<MomentViewDTO> getMomentsFiltered(String emotionName, LocalDate date) {
         List<Moment> moments = repository.getMomentsFiltered(emotionName, date);
         return MomentMapper.toDTOList(moments);

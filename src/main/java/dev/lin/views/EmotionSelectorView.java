@@ -4,7 +4,6 @@ import dev.lin.models.EmotionEnum;
 
 public class EmotionSelectorView extends View {
     
-    // Plantilla del menú de emociones
     private static final String EMOTION_MENU = """
             Mis emociones:
             1. Alegría

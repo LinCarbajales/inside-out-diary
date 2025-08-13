@@ -39,7 +39,7 @@ public class DiaryDatabase implements InterfaceDB {
     }
 
     @Override
-public List<Moment> getMomentsFiltered(String emotionName, LocalDate date) {
+    public List<Moment> getMomentsFiltered(String emotionName, LocalDate date) {
     return moments.stream()
         .filter(moment -> emotionName == null || 
                 moment.getEmotion().getName().equalsIgnoreCase(emotionName))
