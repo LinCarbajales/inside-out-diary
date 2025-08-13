@@ -26,7 +26,7 @@ public class EmotionSelectorView extends View {
         EmotionEnum selectedEmotion = null;
         while (selectedEmotion == null) {
             int emotionNum = SCANNER.nextInt();
-            SCANNER.nextLine(); // Consumir salto de línea
+            SCANNER.nextLine();
             
             selectedEmotion = EmotionEnum.fromNumber(emotionNum);
             

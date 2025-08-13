@@ -9,6 +9,7 @@ public class MomentDisplayView {
         if (moments.isEmpty()) {
             System.out.println("No hay momentos guardados que cumplan los parámetros solicitados.");
         } else {
+            System.out.println("Lista de momentos:");
             moments.forEach(dto -> {
                 System.out.println(dto.getId() + ". " +
                             dto.getTitle() + ". " + 
