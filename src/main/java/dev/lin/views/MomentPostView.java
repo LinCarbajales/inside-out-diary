@@ -12,8 +12,6 @@ public class MomentPostView extends View {
     private static int nextId = 1;
 
     public static void printStoreMenu() {
-        
-        SCANNER.nextLine();
 
         int momentId = nextId++;
 

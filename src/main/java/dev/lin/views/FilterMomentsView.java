@@ -13,8 +13,6 @@ public class FilterMomentsView extends View {
     private static MomentController CONTROLLER = MomentControllerSingleton.getInstance();
 
     public static void printFilterMenu() {
-
-        SCANNER.nextLine();
         
         String filterMenu = """
                 Filtrar por:
