@@ -4,7 +4,6 @@ public class HomeView extends View{
 
     public static void printMenu() {
 
-        // Bloque de texto
         String text = """
                 Mi diario:
                 1. Añadir momento
