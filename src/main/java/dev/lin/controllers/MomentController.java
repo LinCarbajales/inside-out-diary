@@ -36,8 +36,16 @@ public class MomentController {
     }
 
     //Filter
-    public List<MomentViewDTO> getMomentsFiltered(String emotionName, LocalDate date) {
-        List<Moment> moments = repository.getMomentsFiltered(emotionName, date);
+    
+    // SOBRECARGA: mismo nombre, solo emoción
+    public List<MomentViewDTO> getMomentsFiltered(String emotionName) {
+        List<Moment> moments = repository.getMomentsFiltered(emotionName);
+        return MomentMapper.toDTOList(moments);
+    }
+
+    // SOBRECARGA: mismo nombre, solo fecha
+    public List<MomentViewDTO> getMomentsFiltered(LocalDate date) {
+        List<Moment> moments = repository.getMomentsFiltered(date);
         return MomentMapper.toDTOList(moments);
     }
 }

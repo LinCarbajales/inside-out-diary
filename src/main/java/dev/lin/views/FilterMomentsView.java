@@ -46,12 +46,12 @@ public class FilterMomentsView extends View {
         switch (filterOption) {
             case EMOTION -> {
                 EmotionEnum momentEmotion = EmotionSelectorView.selectEmotion();
-                List<MomentViewDTO> moments = CONTROLLER.getMomentsFiltered(momentEmotion.getName(), null);
+                List<MomentViewDTO> moments = CONTROLLER.getMomentsFiltered(momentEmotion.getName());
                 MomentDisplayView.displayMoments(moments);
             }
             case DATE -> {
                 LocalDate momentDate = DateInputView.inputDate();
-                List<MomentViewDTO> moments = CONTROLLER.getMomentsFiltered(null, momentDate);
+                List<MomentViewDTO> moments = CONTROLLER.getMomentsFiltered(momentDate);
                 MomentDisplayView.displayMoments(moments);
             }
         }
