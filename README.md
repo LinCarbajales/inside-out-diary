@@ -43,25 +43,24 @@ Java Development Kit (JDK).
 Maven.
 
 ### Pasos para la instalación
-Clonar el repositorio:
+
+#### Clonar el repositorio:
+
 Abre tu terminal y clona el proyecto en tu máquina local.
 
-Bash
+En una terminal Bash:
 
 git clone https://github.com/LinCarbajales/inside-out-diary.git
 cd nombre-del-repositorio
-Compilar el proyecto:
-Si usas Maven, puedes compilar el proyecto con el siguiente comando:
 
-Bash
+#### Compilar el proyecto:
+
+Con Maven, puedes compilar el proyecto con el siguiente comando en Bash:
 
 mvn clean install
 Esto creará un archivo .jar ejecutable en el directorio target/.
 
-Ejecución de los tests
-El proyecto incluye tests unitarios para asegurar el correcto funcionamiento de las funcionalidades clave. Puedes ejecutar los tests con el siguiente comando de Maven:
-
-Bash
 
 ## mvn test
 A continuación, se muestra una captura de la cobertura de código obtenida por los tests:
+
