@@ -64,3 +64,65 @@ Esto creará un archivo .jar ejecutable en el directorio target/.
 ## mvn test
 A continuación, se muestra una captura de la cobertura de código obtenida por los tests:
 
+
+## Diseño
+
+<img width="3840" height="2635" alt="Untitled diagram _ Mermaid Chart-2025-08-14-121519" src="https://github.com/user-attachments/assets/56a5898d-b64a-44a7-b267-10842faeff90" />
+
+
+### 🏗️ Patrones de Diseño Implementados
+#### MVC (Model-View-Controller)
+
+Controllers: HomeController, MomentController - Lógica de negocio
+Views: Interfaz de usuario con herencia desde clase abstracta View
+Models: Moment, EmotionEnum - Entidades del dominio
+
+#### Repository Pattern
+
+Interface: InterfaceDB - Contrato de acceso a datos
+Implementation: DiaryDatabase - Almacenamiento en memoria
+Repository: MomentRepository - Capa de abstracción
+
+#### Singleton Pattern
+
+MomentControllerSingleton - Instancia única del controlador
+MomentRepositorySingleton - Instancia única del repositorio
+
+#### DTO Pattern
+
+MomentDTO - Transferencia de datos de entrada
+MomentViewDTO - Datos para visualización
+MomentFilterDTO - Datos para filtrado
+
+#### Mapper Pattern
+
+MomentMapper - Conversión entre entidades y DTOs
+
+### 🔄 Flujo de Ejecución
+
+Inicialización: App → HomeController → HomeView
+Interacción: Usuario selecciona opción → Vista específica
+Procesamiento: Vista → MomentControllerSingleton → MomentController
+Persistencia: Controller → MomentRepository → DiaryDatabase
+Conversión: MomentMapper maneja transformaciones entre DTOs y entidades
+
+### ✨ Características Destacadas
+
+#### Enums Inteligentes
+
+EmotionEnum: 10 emociones predefinidas con métodos de conversión
+HomeOptionEnum: Menú con funciones lambda integradas
+FilterOptionEnum: Opciones de filtrado tipado
+
+#### Herencia Estructurada
+
+Todas las vistas heredan de View (clase abstracta)
+Scanner compartido para entrada de usuario
+Reutilización de código común
+
+#### Separación de Responsabilidades
+
+Controladores: Solo lógica de negocio
+Vistas: Solo presentación e interacción
+Repositorios: Solo acceso a datos
+Mappers: Solo conversión de datos
