@@ -26,7 +26,7 @@ Las principales funcionalidades de la aplicación son:
 - **👀 Ver momentos**: Recuperar y visualizar la lista completa de momentos guardados
 - **🗑️ Eliminar un momento**: Borrar una entrada del diario para mantenerlo organizado
 - **🔍 Filtrar momentos**: Buscar momentos específicos por emoción o por fecha
-- **🚪 Salir del programa**: Finalizar la ejecución de la aplicación de forma segura
+- **🚪 Salir del programa**: Finalizar la ejecución de la aplicación
 
 ## 🚀 Instalación
 
@@ -138,4 +138,5 @@ Controladores: Solo lógica de negocio
 Vistas: Solo presentación e interacción
 Repositorios: Solo acceso a datos
 Mappers: Solo conversión de datos
+
 
