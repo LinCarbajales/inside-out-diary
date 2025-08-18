@@ -6,6 +6,8 @@ import java.time.LocalDate;
 import dev.lin.contracts.InterfaceDB;
 import dev.lin.db.DiaryDatabase;
 import dev.lin.models.Moment;
+import dev.lin.models.EmotionEnum;
+import dev.lin.models.RatingEnum;
 
 public class MomentRepository {
     
@@ -27,11 +29,16 @@ public class MomentRepository {
         return diaryDB.deleteMoment(id);
     }
 
-    public List<Moment> getMomentsFiltered(String emotionName) {
-        return diaryDB.getMomentsFiltered(emotionName);
+    public List<Moment> getMomentsFiltered(EmotionEnum emotion) {
+        return diaryDB.getMomentsFiltered(emotion);
     }
 
     public List<Moment> getMomentsFiltered(LocalDate date) {
         return diaryDB.getMomentsFiltered(date);
     }
+
+    public List<Moment> getMomentsFiltered(RatingEnum rating) {
+        return diaryDB.getMomentsFiltered(rating);
+    }
+
 }

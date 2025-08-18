@@ -4,6 +4,7 @@ import dev.lin.controllers.MomentController;
 import dev.lin.dtos.MomentDTO;
 import dev.lin.singletons.MomentControllerSingleton;
 import dev.lin.models.EmotionEnum;
+import dev.lin.models.RatingEnum;
 import java.time.LocalDate;
 
 public class MomentPostView extends View {
@@ -22,13 +23,16 @@ public class MomentPostView extends View {
         EmotionEnum momentEmotion = EmotionSelectorView.selectEmotion();
         System.out.println("Has elegido: " + momentEmotion.getName());
 
+        RatingEnum momentRating = RatingSelectorView.printRatingMenu();
+        System.out.println("Has elegido: " + momentRating.getDisplayName());
+
         LocalDate momentDate = DateInputView.inputDate();
         System.out.println("Fecha del momento: " + momentDate);
 
         System.out.println("Escribe la descripción del momento:");
         String momentDescription = SCANNER.nextLine();
 
-        MomentDTO moment = new MomentDTO(momentId, momentTitle, momentEmotion, momentDate, momentDescription);
+        MomentDTO moment = new MomentDTO(momentId, momentTitle, momentEmotion, momentRating, momentDate, momentDescription);
         CONTROLLER.StoreMoment(moment);
         
         System.out.println("Momento guardado con éxito.");

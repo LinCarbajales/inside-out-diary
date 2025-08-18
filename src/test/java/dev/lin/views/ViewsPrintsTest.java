@@ -1,6 +1,7 @@
 package dev.lin.views;
 
 import dev.lin.models.EmotionEnum;
+import dev.lin.models.RatingEnum;
 import dev.lin.dtos.MomentViewDTO;
 import static com.github.stefanbirkner.systemlambda.SystemLambda.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -102,7 +103,7 @@ public class ViewsPrintsTest {
         assertTrue(emptyOutput.contains("No se han encontrado momentos."));
 
         List<MomentViewDTO> moments = new ArrayList<>();
-        moments.add(new MomentViewDTO(1, "Título", EmotionEnum.ALEGRIA, java.time.LocalDate.now(), "Desc", java.time.LocalDate.now(), java.time.LocalDate.now()));
+        moments.add(new MomentViewDTO(1, "Título", EmotionEnum.ALEGRIA, RatingEnum.BUENO, java.time.LocalDate.now(), "Desc", java.time.LocalDate.now(), java.time.LocalDate.now()));
         String nonEmptyOutput = tapSystemOut(() -> {
             MomentDisplayView.displayMoments(moments);
         });
@@ -113,8 +114,8 @@ public class ViewsPrintsTest {
     @Test
     public void testMomentDisplayView_displayMoments_multipleMoments() throws Exception {
         List<MomentViewDTO> moments = new ArrayList<>();
-        moments.add(new MomentViewDTO(1, "Primer momento", EmotionEnum.ALEGRIA, java.time.LocalDate.now(), "Descripción 1", java.time.LocalDate.now(), java.time.LocalDate.now()));
-        moments.add(new MomentViewDTO(2, "Segundo momento", EmotionEnum.TRISTEZA, java.time.LocalDate.now(), "Descripción 2", java.time.LocalDate.now(), java.time.LocalDate.now()));
+        moments.add(new MomentViewDTO(1, "Primer momento", EmotionEnum.ALEGRIA, RatingEnum.BUENO, java.time.LocalDate.now(), "Descripción 1", java.time.LocalDate.now(), java.time.LocalDate.now()));
+        moments.add(new MomentViewDTO(2, "Segundo momento", EmotionEnum.TRISTEZA, RatingEnum.MALO, java.time.LocalDate.now(), "Descripción 2", java.time.LocalDate.now(), java.time.LocalDate.now()));
         
         String output = tapSystemOut(() -> {
             MomentDisplayView.displayMoments(moments);

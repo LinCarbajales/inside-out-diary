@@ -11,6 +11,7 @@ public class Moment {
     private String description;
     private LocalDate creationDate;
     private LocalDate update;
+    private RatingEnum rating;
 
     public Moment(int id) {
         this.id = id;
@@ -45,6 +46,10 @@ public class Moment {
         return update;
     }
 
+    public RatingEnum getRating() {
+        return rating;
+    }
+
     // Setters
     public void setTitle(String title) {
         this.title = title;
@@ -68,6 +73,10 @@ public class Moment {
 
     public void setUpdate(LocalDate update) {
         this.update = update;
+    }
+
+    public void setRating(RatingEnum rating) {
+        this.rating = rating;
     }
 
 }

@@ -2,8 +2,9 @@ package dev.lin.dtos;
 
 import java.time.LocalDate;
 import dev.lin.models.EmotionEnum;
+import dev.lin.models.RatingEnum;
 
-public record MomentViewDTO(int id, String title, EmotionEnum emotion, LocalDate date, String description, LocalDate creationDate, LocalDate update) {
+public record MomentViewDTO(int id, String title, EmotionEnum emotion, RatingEnum rating, LocalDate date, String description, LocalDate creationDate, LocalDate update) {
 
     public int getId() {
         return id;
@@ -15,6 +16,10 @@ public record MomentViewDTO(int id, String title, EmotionEnum emotion, LocalDate
 
     public EmotionEnum getEmotion() {
         return emotion;
+    }
+    
+    public RatingEnum getRating() {
+        return rating;
     }
     
     public LocalDate getDate() {
