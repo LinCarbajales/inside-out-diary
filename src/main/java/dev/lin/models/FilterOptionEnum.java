@@ -2,7 +2,8 @@ package dev.lin.models;
 
 public enum FilterOptionEnum {
     EMOTION(1),
-    DATE(2);
+    DATE(2),
+    RATING(3);
 
     private final int value;
 

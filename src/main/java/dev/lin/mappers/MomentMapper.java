@@ -16,6 +16,7 @@ public class MomentMapper {
         moment.setEmotion(dto.emotion());
         moment.setDate(dto.date());
         moment.setDescription(dto.description());
+        moment.setRating(dto.rating());
         moment.setCreationDate(LocalDate.now());
         moment.setUpdate(LocalDate.now());
         return moment;
@@ -26,6 +27,7 @@ public class MomentMapper {
             entity.getId(),
             entity.getTitle(),
             entity.getEmotion(),
+            entity.getRating(),
             entity.getDate(),
             entity.getDescription(),
             entity.getCreationDate(),

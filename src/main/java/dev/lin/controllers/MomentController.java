@@ -9,6 +9,8 @@ import dev.lin.mappers.MomentMapper;
 import dev.lin.models.Moment;
 import dev.lin.repositories.MomentRepository;
 import dev.lin.singletons.MomentRepositorySingleton;
+import dev.lin.models.EmotionEnum;
+import dev.lin.models.RatingEnum;
 
 public class MomentController {
     
@@ -38,14 +40,19 @@ public class MomentController {
     //Filter
     
     // SOBRECARGA: mismo nombre, solo emoción
-    public List<MomentViewDTO> getMomentsFiltered(String emotionName) {
-        List<Moment> moments = repository.getMomentsFiltered(emotionName);
+    public List<MomentViewDTO> getMomentsFiltered(EmotionEnum emotion) {
+        List<Moment> moments = repository.getMomentsFiltered(emotion);
         return MomentMapper.toDTOList(moments);
     }
 
     // SOBRECARGA: mismo nombre, solo fecha
     public List<MomentViewDTO> getMomentsFiltered(LocalDate date) {
         List<Moment> moments = repository.getMomentsFiltered(date);
+        return MomentMapper.toDTOList(moments);
+    }
+
+    public List<MomentViewDTO> getMomentsFiltered(RatingEnum rating) {
+        List<Moment> moments = repository.getMomentsFiltered(rating);
         return MomentMapper.toDTOList(moments);
     }
 }
