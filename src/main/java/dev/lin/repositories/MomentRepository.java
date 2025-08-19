@@ -4,41 +4,41 @@ import java.util.List;
 import java.time.LocalDate;
 
 import dev.lin.contracts.InterfaceDB;
-import dev.lin.db.DiaryDatabase;
+import dev.lin.db.MomentDatabase;
 import dev.lin.models.Moment;
 import dev.lin.models.EmotionEnum;
 import dev.lin.models.RatingEnum;
 
 public class MomentRepository {
     
-    private InterfaceDB diaryDB;
+    private InterfaceDB momentDB;
 
     public MomentRepository() {
-        this.diaryDB = new DiaryDatabase();
+        this.momentDB = new MomentDatabase();
     }
 
     public void StoreMoment(Moment moment) {        
-        diaryDB.store(moment);
+        momentDB.store(moment);
     }
 
     public List<Moment> getAllMoments() {
-        return diaryDB.getAllMoments();
+        return momentDB.getAllMoments();
     }
 
     public boolean deleteMoment(int id) {
-        return diaryDB.deleteMoment(id);
+        return momentDB.deleteMoment(id);
     }
 
     public List<Moment> getMomentsFiltered(EmotionEnum emotion) {
-        return diaryDB.getMomentsFiltered(emotion);
+        return momentDB.getMomentsFiltered(emotion);
     }
 
     public List<Moment> getMomentsFiltered(LocalDate date) {
-        return diaryDB.getMomentsFiltered(date);
+        return momentDB.getMomentsFiltered(date);
     }
 
     public List<Moment> getMomentsFiltered(RatingEnum rating) {
-        return diaryDB.getMomentsFiltered(rating);
+        return momentDB.getMomentsFiltered(rating);
     }
 
 }
