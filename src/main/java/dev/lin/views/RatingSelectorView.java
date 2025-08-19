@@ -6,7 +6,7 @@ public class RatingSelectorView extends View {
 
     public static RatingEnum printRatingMenu() {
         String ratingMenu = """
-                Fue un momento:
+                Calificación del momento:
                 1. Bueno
                 2. Malo
                 Ingresa una opción:

@@ -8,7 +8,6 @@ import java.time.LocalDate;
 import dev.lin.models.EmotionEnum;
 import dev.lin.models.Moment;
 import dev.lin.contracts.InterfaceDB;
-import dev.lin.models.EmotionEnum;
 import dev.lin.models.RatingEnum;
 
 public class DiaryDatabase implements InterfaceDB {
@@ -22,12 +21,6 @@ public class DiaryDatabase implements InterfaceDB {
     @Override
     public void store(Moment moment) {
         moments.add(moment);
-        System.out.println("Nuevo momento guardado:");
-        System.out.println(moment.getId() + ". " +
-                            moment.getTitle() + ". " + 
-                            "Ocurrió el: " + moment.getDate() +
-                            ". Emoción: " + moment.getEmotion().getName() +
-                            ". Descripción: " + moment.getDescription());
     }
 
     @Override

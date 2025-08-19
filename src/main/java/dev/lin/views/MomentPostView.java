@@ -36,6 +36,7 @@ public class MomentPostView extends View {
         CONTROLLER.StoreMoment(moment);
         
         System.out.println("Momento guardado con éxito.");
+        
         HomeView.printMenu();
     }
     
