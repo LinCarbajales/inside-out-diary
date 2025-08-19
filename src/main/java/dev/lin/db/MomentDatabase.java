@@ -10,11 +10,11 @@ import dev.lin.models.Moment;
 import dev.lin.contracts.InterfaceDB;
 import dev.lin.models.RatingEnum;
 
-public class DiaryDatabase implements InterfaceDB {
+public class MomentDatabase implements InterfaceDB {
     
     private List<Moment> moments;
 
-    public DiaryDatabase() {
+    public MomentDatabase() {
         this.moments = new ArrayList<>();
     }
 

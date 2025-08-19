@@ -10,16 +10,16 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class DiaryDatabaseTest {
+class MomentDatabaseTest {
 
-    private DiaryDatabase db;
+    private MomentDatabase db;
     private Moment moment1;
     private Moment moment2;
     private Moment moment3;
 
     @BeforeEach
     void setUp() {
-        db = new DiaryDatabase();
+        db = new MomentDatabase();
         moment1 = new Moment(1);
         moment1.setTitle("Día feliz");
         moment1.setEmotion(EmotionEnum.ALEGRIA);
