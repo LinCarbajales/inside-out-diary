@@ -34,21 +34,18 @@ public class MomentDatabase implements InterfaceDB {
         return removed;
     }
 
-    @Override
     public List<Moment> getMomentsFiltered(EmotionEnum emotion) {
     return moments.stream()
         .filter(moment -> moment.getEmotion().equals(emotion))
         .collect(Collectors.toList());
     }
 
-    @Override
     public List<Moment> getMomentsFiltered(LocalDate date) {
     return moments.stream()
         .filter(moment -> moment.getDate().equals(date))
         .collect(Collectors.toList());
     }
 
-    @Override
     public List<Moment> getMomentsFiltered(RatingEnum rating) {
     return moments.stream()
         .filter(moment -> moment.getRating().equals(rating))

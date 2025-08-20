@@ -3,7 +3,6 @@ package dev.lin.repositories;
 import java.util.List;
 import java.time.LocalDate;
 
-import dev.lin.contracts.InterfaceDB;
 import dev.lin.db.MomentDatabase;
 import dev.lin.models.Moment;
 import dev.lin.models.EmotionEnum;
@@ -11,7 +10,7 @@ import dev.lin.models.RatingEnum;
 
 public class MomentRepository {
     
-    private InterfaceDB momentDB;
+    private MomentDatabase momentDB;
 
     public MomentRepository() {
         this.momentDB = new MomentDatabase();

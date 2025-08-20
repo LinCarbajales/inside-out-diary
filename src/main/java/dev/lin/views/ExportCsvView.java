@@ -7,7 +7,7 @@ import java.io.IOException;
 public class ExportCsvView extends View {
     
     private static MomentController CONTROLLER = MomentControllerSingleton.getInstance();
-    private static final String CSV_FILE_PATH = "moments.csv";
+    private static final String CSV_FILE_PATH = "src/main/java/dev/lin/db/saved/moments.csv";
 
     public static void printExport() {
         System.out.println("Exportando momentos a " + CSV_FILE_PATH + "...");
