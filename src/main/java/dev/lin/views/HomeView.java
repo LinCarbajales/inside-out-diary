@@ -12,7 +12,8 @@ public class HomeView extends View{
                 2. Ver todos los momentos disponibles
                 3. Eliminar un momento
                 4. Filtrar los momentos
-                5. Salir
+                5. Exportar a CSV
+                6. Salir
                 Seleccione una opción:
                 """;
 
@@ -20,15 +21,15 @@ public class HomeView extends View{
         
         try {
             int option = SCANNER.nextInt();
-            SCANNER.nextLine(); // Consumir el salto de línea
+            SCANNER.nextLine();
             boolean found = HomeOptionEnum.execute(option);
             if (!found) {
-                System.out.println("Elige una opción del 1 al 5.");
+                System.out.println("Elige una opción del 1 al 6.");
                 printMenu();
             }
         } catch (java.util.InputMismatchException e) {
-            System.out.println("Elige una opción del 1 al 5.");
-            SCANNER.nextLine(); // Limpiar toda la línea
+            System.out.println("Elige una opción del 1 al 6.");
+            SCANNER.nextLine();
             printMenu();
         }
     }

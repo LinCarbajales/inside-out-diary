@@ -1,5 +1,7 @@
 package dev.lin.controllers;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -7,6 +9,7 @@ import dev.lin.dtos.MomentDTO;
 import dev.lin.dtos.MomentViewDTO;
 import dev.lin.mappers.MomentMapper;
 import dev.lin.models.Moment;
+import dev.lin.repositories.CSVRepository;
 import dev.lin.repositories.MomentRepository;
 import dev.lin.singletons.MomentRepositorySingleton;
 import dev.lin.models.EmotionEnum;
@@ -15,9 +18,11 @@ import dev.lin.models.RatingEnum;
 public class MomentController {
     
     private MomentRepository repository;
+    private CSVRepository csvRepository;
 
     public MomentController() {
         this.repository = MomentRepositorySingleton.getInstance();
+        this.csvRepository = new CSVRepository();
     }
 
     //Store
@@ -51,8 +56,16 @@ public class MomentController {
         return MomentMapper.toDTOList(moments);
     }
 
+    // SOBRECARGA: mismo nombre, solo calificación
     public List<MomentViewDTO> getMomentsFiltered(RatingEnum rating) {
         List<Moment> moments = repository.getMomentsFiltered(rating);
         return MomentMapper.toDTOList(moments);
+    }
+
+    //Enviar momentos al CSV
+    public void exportMomentsToCsv(String filePath) throws IOException {
+        List<Moment> moments = repository.getAllMoments();
+        List<MomentViewDTO> dtos = MomentMapper.toDTOList(moments);
+        csvRepository.saveMomentsToCsv(dtos, filePath);
     }
 }
