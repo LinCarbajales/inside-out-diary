@@ -1,4 +1,4 @@
-package dev.lin.api;
+package dev.lin.daos;
 
 public interface InterfaceApiMoviesDAO {
     

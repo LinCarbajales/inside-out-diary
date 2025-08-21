@@ -8,20 +8,20 @@ import dev.lin.dtos.MomentDTO;
 import dev.lin.dtos.MomentViewDTO;
 import dev.lin.mappers.MomentMapper;
 import dev.lin.models.Moment;
-import dev.lin.repositories.CSVMomentRepository;
 import dev.lin.repositories.MomentRepository;
 import dev.lin.singletons.MomentRepositorySingleton;
+import dev.lin.repositories.CSVMomentRepository;
 import dev.lin.models.EmotionEnum;
 import dev.lin.models.RatingEnum;
 
 public class MomentController {
     
     private MomentRepository repository;
-    private CSVMomentRepository csvRepository;
+    private CSVMomentRepository csvMomentRepository;
 
     public MomentController() {
         this.repository = MomentRepositorySingleton.getInstance();
-        this.csvRepository = new CSVMomentRepository();
+        this.csvMomentRepository = new CSVMomentRepository();
     }
 
     //Store
@@ -64,6 +64,6 @@ public class MomentController {
     //Enviar momentos al CSV
     public void exportMomentsToCsv(String filePath) throws IOException {
         List<Moment> moments = repository.getAllMoments();
-        csvRepository.saveMomentsToCsv(moments, filePath);
+        csvMomentRepository.saveMomentsToCsv(moments, filePath);
     }
 }

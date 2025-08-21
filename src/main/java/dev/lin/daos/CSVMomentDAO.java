@@ -1,4 +1,4 @@
-package dev.lin.db;
+package dev.lin.daos;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -6,7 +6,7 @@ import java.util.List;
 
 import dev.lin.models.Moment;
 
-public class CSVMomentStorage {
+public class CSVMomentDAO {
     public void saveToCsv(List<Moment> moments, String filePath) throws IOException {
         try (FileWriter writer = new FileWriter(filePath)) {
             // Escribir la cabecera

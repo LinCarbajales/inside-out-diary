@@ -1,4 +1,4 @@
-package dev.lin.api;
+package dev.lin.daos;
 
 import java.net.URI;
 import java.net.http.HttpClient;
