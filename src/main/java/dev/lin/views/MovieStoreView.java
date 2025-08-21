@@ -21,7 +21,14 @@ public class MovieStoreView {
         String title =  movie.getShortInfo().getName();
         System.out.println("Título: " + title);
         System.out.println("ID de IMDb: " + movie.getImdbId());
-        System.out.println(movie.getShortInfo().getReleaseDate());
+
+        // Obtener el año de lanzamiento
+        Integer releaseYear = movieService.getReleaseYear("tt0974977");
+        if (releaseYear != null) {
+            System.out.println("Año de lanzamiento: " + releaseYear);
+        } else {
+            System.out.println("Año de lanzamiento: No disponible");
+        }
 
         HomeView.printMenu();
     }

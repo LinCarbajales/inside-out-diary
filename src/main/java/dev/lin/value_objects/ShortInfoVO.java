@@ -1,6 +1,5 @@
 package dev.lin.value_objects;
 
-import java.time.LocalDate;
 import java.util.Arrays;
 
 /* 
@@ -19,7 +18,7 @@ public class ShortInfoVO {
     private String url;
     private String image;
     private String[] genre;
-    private LocalDate releaseDate;
+    // Eliminado: private LocalDate releaseDate; - no existe en el JSON
 
     public String getName() {
         return name;
@@ -35,10 +34,6 @@ public class ShortInfoVO {
 
     public String[] getGenre() {
         return genre;
-    }
-
-    public LocalDate getReleaseDate() {
-        return releaseDate;
     }
 
     @Override
@@ -69,7 +64,4 @@ public class ShortInfoVO {
             return false;
         return true;
     }
-
-    
-
 }

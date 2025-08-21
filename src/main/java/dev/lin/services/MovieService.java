@@ -24,4 +24,19 @@ public class MovieService {
         return movieDTO;
     }
 
+    // Nuevo método para obtener el año de lanzamiento
+    public Integer getReleaseYear(String imdbId) {
+        MovieDTO movieDTO = getMovieInfoAndMapToDTO(imdbId);
+        
+        if (movieDTO == null) {
+            return null;
+        }
+
+        if (movieDTO.getTopInfo() == null) {
+            return null;
+        }
+
+        return movieDTO.getTopInfo().getYearAsInt();
+    }
+
 }
