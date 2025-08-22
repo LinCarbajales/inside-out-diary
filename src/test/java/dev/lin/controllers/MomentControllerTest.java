@@ -84,7 +84,6 @@ public class MomentControllerTest {
     @Test
     void testGetMomentsFilteredByEmotionReturnsFilteredList() {
 
-        String emotionName = "Tristeza";
         
         Moment moment1 = new Moment(1);
         moment1.setEmotion(EmotionEnum.TRISTEZA);
@@ -96,9 +95,9 @@ public class MomentControllerTest {
 
         List<Moment> filteredMoments = Arrays.asList(moment1, moment2);
 
-        when(repository.getMomentsFiltered(emotionName)).thenReturn(filteredMoments);
+        when(repository.getMomentsFiltered(EmotionEnum.TRISTEZA)).thenReturn(filteredMoments);
 
-        List<MomentViewDTO> result = controller.getMomentsFiltered(emotionName);
+        List<MomentViewDTO> result = controller.getMomentsFiltered(EmotionEnum.TRISTEZA);
 
         assertEquals(2, result.size());
 
@@ -106,20 +105,19 @@ public class MomentControllerTest {
             .anyMatch(dto -> dto.getEmotion() != EmotionEnum.TRISTEZA);
         assertFalse(hasOtherEmotions);
 
-        verify(repository, times(1)).getMomentsFiltered("Tristeza");
+        verify(repository, times(1)).getMomentsFiltered(EmotionEnum.TRISTEZA);
     }
 
     @Test
     void testGetMomentsFilteredByEmotionReturnsEmptyListWhenNoMatches() {
-        String emotionName = "Envidia";
         
-        when(repository.getMomentsFiltered(emotionName)).thenReturn(Collections.emptyList());
+        when(repository.getMomentsFiltered(EmotionEnum.TRISTEZA)).thenReturn(Collections.emptyList());
 
-        List<MomentViewDTO> result = controller.getMomentsFiltered(emotionName);
+        List<MomentViewDTO> result = controller.getMomentsFiltered(EmotionEnum.ENVIDIA);
 
         assertTrue(result.isEmpty());
 
-        verify(repository, times(1)).getMomentsFiltered("Envidia");
+        verify(repository, times(1)).getMomentsFiltered(EmotionEnum.ENVIDIA);
     }
 
     @Test

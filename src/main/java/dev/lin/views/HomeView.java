@@ -12,8 +12,9 @@ public class HomeView extends View{
                 2. Ver todos los momentos disponibles
                 3. Eliminar un momento
                 4. Filtrar los momentos
-                5. Exportar a CSV
-                6. Salir
+                5. Exportar momentos a CSV
+                6. Añadir película
+                7. Salir
                 Seleccione una opción:
                 """;
 

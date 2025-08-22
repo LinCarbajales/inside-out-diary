@@ -70,7 +70,7 @@ class MomentDatabaseTest {
 
     @Test
     void testGetMomentsFilteredByEmotion() {
-        List<Moment> filtered = db.getMomentsFiltered("Alegría");
+        List<Moment> filtered = db.getMomentsFiltered(EmotionEnum.ALEGRIA);
         assertEquals(2, filtered.size());
         assertTrue(filtered.contains(moment1));
         assertTrue(filtered.contains(moment3));
@@ -78,7 +78,7 @@ class MomentDatabaseTest {
 
     @Test
     void testGetMomentsFilteredByEmotionCaseInsensitive() {
-        List<Moment> filtered = db.getMomentsFiltered("alegría");
+        List<Moment> filtered = db.getMomentsFiltered(EmotionEnum.ALEGRIA);
         assertEquals(2, filtered.size());
     }
 
