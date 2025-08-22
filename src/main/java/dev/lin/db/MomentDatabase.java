@@ -5,26 +5,22 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.time.LocalDate;
 
+import dev.lin.models.EmotionEnum;
 import dev.lin.models.Moment;
 import dev.lin.contracts.InterfaceDB;
+import dev.lin.models.RatingEnum;
 
-public class DiaryDatabase implements InterfaceDB {
+public class MomentDatabase implements InterfaceDB {
     
     private List<Moment> moments;
 
-    public DiaryDatabase() {
+    public MomentDatabase() {
         this.moments = new ArrayList<>();
     }
 
     @Override
     public void store(Moment moment) {
         moments.add(moment);
-        System.out.println("Nuevo momento guardado:");
-        System.out.println(moment.getId() + ". " +
-                            moment.getTitle() + ". " + 
-                            "Ocurrió el: " + moment.getDate() +
-                            ". Emoción: " + moment.getEmotion().getName() +
-                            ". Descripción: " + moment.getDescription());
     }
 
     @Override
@@ -38,18 +34,22 @@ public class DiaryDatabase implements InterfaceDB {
         return removed;
     }
 
-    @Override
-    public List<Moment> getMomentsFiltered(String emotionName) {
+    public List<Moment> getMomentsFiltered(EmotionEnum emotion) {
     return moments.stream()
-        .filter(moment -> moment.getEmotion().getName().equalsIgnoreCase(emotionName))
+        .filter(moment -> moment.getEmotion().equals(emotion))
         .collect(Collectors.toList());
-}
+    }
 
-    @Override
     public List<Moment> getMomentsFiltered(LocalDate date) {
     return moments.stream()
         .filter(moment -> moment.getDate().equals(date))
         .collect(Collectors.toList());
-}
+    }
+
+    public List<Moment> getMomentsFiltered(RatingEnum rating) {
+    return moments.stream()
+        .filter(moment -> moment.getRating().equals(rating))
+        .collect(Collectors.toList());
+    }
 
 }

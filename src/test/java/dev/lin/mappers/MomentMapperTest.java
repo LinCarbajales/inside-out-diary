@@ -4,6 +4,8 @@ import dev.lin.dtos.MomentDTO;
 import dev.lin.dtos.MomentViewDTO;
 import dev.lin.models.EmotionEnum;
 import dev.lin.models.Moment;
+import dev.lin.models.RatingEnum;
+
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
@@ -16,7 +18,7 @@ class MomentMapperTest {
 
     @Test
     void testToEntity() {
-        MomentDTO dto = new MomentDTO(1, "Título", EmotionEnum.ALEGRIA, LocalDate.of(2023, 5, 1), "Descripción");
+        MomentDTO dto = new MomentDTO(1, "Título", EmotionEnum.ALEGRIA, RatingEnum.BUENO, LocalDate.of(2023, 5, 1), "Descripción");
         Moment entity = MomentMapper.toEntity(dto);
 
         assertEquals(dto.id(), entity.getId());

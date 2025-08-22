@@ -15,6 +15,7 @@ public class MomentDisplayView {
                             dto.getTitle() + ". " + 
                             "Ocurrió el: " + dto.getDate() +
                             " Emoción: " + dto.getEmotion().getName() +
+                            ". Fue un momento " + dto.getRating().getDisplayName().toLowerCase() +
                             ". Descripción: " + dto.getDescription() + 
                             " Fecha de creación: " + dto.getCreationDate());
             });

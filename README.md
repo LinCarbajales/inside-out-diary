@@ -1,6 +1,12 @@
 # Inside Out Diary
 
-## 📖 Descripción del Proyecto
+## En desarrollo
+
+Después de haber finalizado la versión 1.0, el proyecto se encuentra de nuevo en desarrollo con funcionalidades adicionales en proceso de implementación. Primero he incluido la posibilidad de guardar los momentos en un archivo csv (pendiente de refactorización para incluir dto). Después he añadido una opción de guardar película, que a través de la arquitectura mvc recoge los datos de una película desde una api. Los datos son tratados con value_objects y dtos para convertir aquellos que interesan: el título de la película, el año de su estreno y el género o géneros a los que pertenece. De momento, estos datos solo se imprimen en pantalla, pero el objetivo es que se guarden en un archivo csv.
+
+## 📖 README del Proyecto original completado (rama v1.0)
+
+### A continuación se muestra el readme original con las especificaciones iniciales del proyecto. Esta versión completamente funcional y con testing implementado se puede revisar en la rama v1.0.
 
 Este proyecto es una aplicación de consola para la gestión de un diario de momentos personales. Permite a los usuarios registrar, visualizar y eliminar sus recuerdos, cada uno asociado a una emoción y una fecha específica.
 
@@ -138,5 +144,8 @@ Controladores: Solo lógica de negocio
 Vistas: Solo presentación e interacción
 Repositorios: Solo acceso a datos
 Mappers: Solo conversión de datos
+
+
+
 
 

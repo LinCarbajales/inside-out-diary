@@ -10,16 +10,16 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class DiaryDatabaseTest {
+class MomentDatabaseTest {
 
-    private DiaryDatabase db;
+    private MomentDatabase db;
     private Moment moment1;
     private Moment moment2;
     private Moment moment3;
 
     @BeforeEach
     void setUp() {
-        db = new DiaryDatabase();
+        db = new MomentDatabase();
         moment1 = new Moment(1);
         moment1.setTitle("Día feliz");
         moment1.setEmotion(EmotionEnum.ALEGRIA);
@@ -70,7 +70,7 @@ class DiaryDatabaseTest {
 
     @Test
     void testGetMomentsFilteredByEmotion() {
-        List<Moment> filtered = db.getMomentsFiltered("Alegría");
+        List<Moment> filtered = db.getMomentsFiltered(EmotionEnum.ALEGRIA);
         assertEquals(2, filtered.size());
         assertTrue(filtered.contains(moment1));
         assertTrue(filtered.contains(moment3));
@@ -78,7 +78,7 @@ class DiaryDatabaseTest {
 
     @Test
     void testGetMomentsFilteredByEmotionCaseInsensitive() {
-        List<Moment> filtered = db.getMomentsFiltered("alegría");
+        List<Moment> filtered = db.getMomentsFiltered(EmotionEnum.ALEGRIA);
         assertEquals(2, filtered.size());
     }
 

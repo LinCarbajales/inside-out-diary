@@ -3,6 +3,7 @@ package dev.lin.views;
 import dev.lin.controllers.MomentController;
 import dev.lin.dtos.MomentViewDTO;
 import dev.lin.models.EmotionEnum;
+import dev.lin.models.RatingEnum;
 import dev.lin.singletons.MomentControllerSingleton;
 import dev.lin.models.FilterOptionEnum;
 
@@ -19,6 +20,7 @@ public class FilterMomentsView extends View {
                 Filtrar por:
                 1. Emoción
                 2. Fecha
+                3. Calificación
                 Ingrese una opción:
                 """;
 
@@ -29,7 +31,7 @@ public class FilterMomentsView extends View {
             option = SCANNER.nextInt();
             SCANNER.nextLine(); 
         } catch (java.util.InputMismatchException e) {
-            System.out.println("Elige 1 o 2.");
+            System.out.println("Elige un número del 1 al 3.");
             SCANNER.nextLine(); 
             printFilterMenu();
             return;
@@ -38,7 +40,7 @@ public class FilterMomentsView extends View {
         FilterOptionEnum filterOption = FilterOptionEnum.fromInt(option);
 
         if (filterOption == null) {
-            System.out.println("Elige 1 o 2.");
+            System.out.println("Elige un número del 1 al 3.");
             printFilterMenu();
             return;
         }
@@ -46,12 +48,17 @@ public class FilterMomentsView extends View {
         switch (filterOption) {
             case EMOTION -> {
                 EmotionEnum momentEmotion = EmotionSelectorView.selectEmotion();
-                List<MomentViewDTO> moments = CONTROLLER.getMomentsFiltered(momentEmotion.getName());
+                List<MomentViewDTO> moments = CONTROLLER.getMomentsFiltered(momentEmotion);
                 MomentDisplayView.displayMoments(moments);
             }
             case DATE -> {
                 LocalDate momentDate = DateInputView.inputDate();
                 List<MomentViewDTO> moments = CONTROLLER.getMomentsFiltered(momentDate);
+                MomentDisplayView.displayMoments(moments);
+            }
+            case RATING -> {
+                RatingEnum momentRating = RatingSelectorView.printRatingMenu();
+                List<MomentViewDTO> moments = CONTROLLER.getMomentsFiltered(momentRating);
                 MomentDisplayView.displayMoments(moments);
             }
         }
