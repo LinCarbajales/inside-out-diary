@@ -6,7 +6,7 @@ Tras finalizar la versión 1.0, el proyecto se encuentra actualmente en desarrol
 
 #### A continuación se muestra el readme original con las especificaciones iniciales del proyecto. Esta versión completamente funcional y con testing implementado se puede revisar en la rama v1.0.
 
-## 📖 Descripción del Proyecto original completado (rama v1.0)
+## 📖 README del Proyecto original completado (rama v1.0)
 
 Este proyecto es una aplicación de consola para la gestión de un diario de momentos personales. Permite a los usuarios registrar, visualizar y eliminar sus recuerdos, cada uno asociado a una emoción y una fecha específica.
 
@@ -144,6 +144,7 @@ Controladores: Solo lógica de negocio
 Vistas: Solo presentación e interacción
 Repositorios: Solo acceso a datos
 Mappers: Solo conversión de datos
+
 
 
 
